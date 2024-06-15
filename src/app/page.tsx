@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button";
+import Hero from "@/components/home/Hero";
 import CommmonLayout from "./withCommonLayout/layout";
 
 export default function Home() {
   return (
     <CommmonLayout>
-      <h1>Hello World</h1>
-      <Button variant='secondary'>Primary</Button>
+      <Hero />
     </CommmonLayout>
   );
 }

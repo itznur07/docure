@@ -1,4 +1,4 @@
-import Form from "@/components/Auth/Form";
+import Form from "@/components/auth/Form";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import Link from "next/link";
