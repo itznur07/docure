@@ -29,7 +29,7 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
             <Input
               type='text'
               placeholder='Enter your name'
-              className='mt-1 '
+              className='mt-1 bg-white'
               {...(type === "signup"
                 ? { ...register("name", { required: true }) }
                 : "")}
@@ -56,7 +56,7 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
             <Input
               type='email'
               placeholder='Enter email address'
-              className='mt-1'
+              className='mt-1 bg-white'
               {...register("email", { required: true })}
             />
             {errors.email && (
@@ -72,7 +72,7 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
             <Input
               type='password'
               placeholder='Enter your password'
-              className='mt-1'
+              className='mt-1 bg-white'
               {...register("password", { required: true })}
             />
             {errors.password && (
@@ -95,7 +95,7 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
             <Input
               type='text'
               placeholder='Enter a phone number'
-              className='mt-1'
+              className='mt-1 bg-white'
               {...(type === "signup"
                 ? { ...register("phone", { required: true }) }
                 : "")}
@@ -113,7 +113,7 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
             <Input
               type='text'
               placeholder='Enter address'
-              className='mt-1'
+              className='mt-1 bg-white'
               {...(type === "signup"
                 ? { ...register("password", { required: true }) }
                 : "")}

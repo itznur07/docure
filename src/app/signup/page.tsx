@@ -11,20 +11,23 @@ export const metadata: Metadata = {
 const SignUp = () => {
   return (
     <div className='flex items-center justify-center mt-36 '>
-      <div className='w-[450px] h-auto border p-3 rounded-sm '>
+      <div className='absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]'>
+        <div className='absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]'></div>
+      </div>
+      <div className='w-[450px] h-auto shadow-sm py-5 px-5 rounded-sm bg-white'>
         {/* Header */}
         <div className='flex flex-col items-center justify-center'>
           <Link
             href='/'
-            className='hidden lg:flex items-center gap-2 font-semibold'
+            className='hidden lg:flex lg:flex-col items-center gap-1 font-semibold'
             prefetch={false}
           >
             <MountainIcon className='h-10 w-10' />
+            <span className='text-xl font-bold'>Docure</span>
           </Link>
 
           <Separator className='my-2'></Separator>
 
-          <h1 className='text-xl font-bold'>SignUp</h1>
           <p>Create an new account</p>
         </div>
 
