@@ -8,11 +8,13 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const formHandling = (data: any) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -28,7 +30,9 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
               type='text'
               placeholder='Enter your name'
               className='mt-1 '
-              {...register("name", { required: true })}
+              {...(type === "signup"
+                ? { ...register("name", { required: true }) }
+                : "")}
             />
             {errors.name && (
               <span className='text-sm text-red-500'>
@@ -92,7 +96,9 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
               type='text'
               placeholder='Enter a phone number'
               className='mt-1'
-              {...register("phone", { required: true })}
+              {...(type === "signup"
+                ? { ...register("phone", { required: true }) }
+                : "")}
             />
             {errors.phone && (
               <span className='text-sm text-red-500'>
@@ -108,7 +114,9 @@ const Form: React.FC<{ type: string }> = ({ type }) => {
               type='text'
               placeholder='Enter address'
               className='mt-1'
-              {...register("password", { required: true })}
+              {...(type === "signup"
+                ? { ...register("password", { required: true }) }
+                : "")}
             />
             {errors.password && (
               <span className='text-sm text-red-500'>

@@ -15,7 +15,7 @@ const SignUp = () => {
         {/* Header */}
         <div className='flex flex-col items-center justify-center'>
           <Link
-            href='#'
+            href='/'
             className='hidden lg:flex items-center gap-2 font-semibold'
             prefetch={false}
           >

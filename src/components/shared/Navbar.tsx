@@ -11,13 +11,35 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import styles from "@/styles/navbar.module.css";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='container'>
-      <header className='flex h-20 w-full shrink-0 items-center justify-between px-4 md:px-6'>
-        {/* FOR RESPONSVENESS START */}
+    <div className={`container ${isScrolled ? `${styles.navbarFixed}` : ""}`}>
+      <header
+        className={`${styles.glassmorphism} flex h-20 w-full shrink-0 items-center justify-between px-4 md:px-6`}
+      >
+        {/* FOR RESPONSIVENESS START */}
         <Sheet>
           <SheetTrigger asChild>
             <Button variant='outline' size='icon' className='lg:hidden'>
@@ -90,7 +112,7 @@ const Navbar = () => {
           <MountainIcon className='h-8 w-8' />
           <span className='text-xl'>Docure</span>
         </Link>
-        {/* FOR RESPONSVENESS END */}
+        {/* FOR RESPONSIVENESS END */}
         <NavigationMenu className='hidden lg:flex '>
           <NavigationMenuList className='gap-7'>
             <NavigationMenuLink asChild>

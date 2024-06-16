@@ -1,11 +1,14 @@
+import heroImage from "@/assets/images/hero-image.png";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
 
 const Hero = () => {
   return (
     <>
       {/* Hero */}
-      <div className='relative overflow-hidden py-24 lg:py-32'>
+      <div className='relative overflow-hidden py-14 lg:py-16'>
         {/* Gradients */}
         <div
           aria-hidden='true'
@@ -16,7 +19,7 @@ const Hero = () => {
         </div>
         {/* End Gradients */}
         <div className='relative z-10 container'>
-          <div className='container py-10 lg:py-14'>
+          <div className='container py-10 lg:py-10 lg:flex lg:items-center  lg:justify-between '>
             <div className='max-w-2xl '>
               <Badge variant='outline' className='py-1 px-3'>
                 Discuss with senior doctors
@@ -35,7 +38,7 @@ const Hero = () => {
                 </p>
               </div>
               {/* Buttons */}
-              <div className='mt-8 gap-3 flex'>
+              <div className='mt-8 gap-3 lg:flex sm:flex sm:flex-col   lg:flex-row'>
                 <Button size={"lg"}>Make an appointment</Button>
                 <Button size={"lg"} variant={"outline"}>
                   Contact Us
@@ -43,9 +46,19 @@ const Hero = () => {
               </div>
               {/* End Buttons */}
             </div>
+            <div className='sm:mt-5 lg:mt-0 '>
+              <Image
+                src={heroImage}
+                alt='hero-image'
+                width={800}
+                height={900}
+              />
+              <Separator className='h-2'></Separator>
+            </div>
           </div>
         </div>
       </div>
+
       {/* End Hero */}
     </>
   );
