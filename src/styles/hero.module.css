@@ -1,0 +1,18 @@
+/* styles/globals.css or styles/SkeletonBadge.module.css */
+
+@keyframes skeleton-border {
+  0% {
+    border-color: #e0e0e0;
+  }
+  50% {
+    border-color: #c0c0c0;
+  }
+  100% {
+    border-color: #e0e0e0;
+  }
+}
+
+.skeletonAnimation {
+  border: 2px solid #e0e0e0; /* Initial border color */
+  animation: skeleton-border 1.5s infinite ease-in-out;
+}

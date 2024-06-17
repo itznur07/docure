@@ -1,9 +1,30 @@
+"use client";
 import heroImage from "@/assets/images/hero-image.png";
 import { Button } from "@/components/ui/button";
+import styles from "@/styles/hero.module.css";
+import { gsap } from "gsap";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { Badge } from "../ui/badge";
 
 const Hero = () => {
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.from(imgRef.current, {
+      x: "100%",
+      duration: 0.5,
+      ease: "power2.out",
+    }).to(imgRef.current, {
+      x: "-0%",
+      yoyo: true,
+      duration: 0.2,
+      ease: "power2.inOut",
+    });
+  }, []);
+
   return (
     <>
       <div className='absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]'>
@@ -23,7 +44,10 @@ const Hero = () => {
         <div className='relative z-10 container'>
           <div className='container py-10 lg:py-10 lg:flex lg:items-center  lg:justify-between '>
             <div className='max-w-2xl '>
-              <Badge variant='outline' className='py-1 px-3'>
+              <Badge
+                variant='outline'
+                className={`py-1 px-3 ${styles.skeletonAnimation}`}
+              >
                 Discuss with senior doctors
               </Badge>
               {/* Title */}
@@ -50,6 +74,7 @@ const Hero = () => {
             </div>
             <div className='sm:mt-5 lg:mt-0 '>
               <Image
+                ref={imgRef}
                 src={heroImage}
                 alt='hero-image'
                 width={800}
